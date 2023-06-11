@@ -18,14 +18,7 @@
     <div class="w-full flex gap-4">
         <aside class="min-h-[85vh] p-4 aside_menu rounded-xl bg-gray-100 hidden xl:block">
             <div class="max-w-[250px] w-[250px]">
-                <form action="" method="post">
-                    <div class="mb-2 flex flex-col gap-2">
-                        <label for="address">Select Address</label>
-                        <select name="address" id="address">
-                            <option>Select one</option>
-                        </select>
-                    </div>
-                </form>
+                <x-address.select-form/>
             </div>
         </aside>
 

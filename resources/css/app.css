@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    .input {
+        @apply mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm;
+    }
+
+    label {
+        @apply block text-sm font-medium text-gray-700;
+    }
+
+    select {
+        @apply p-2 bg-white shadow mt-1.5 w-full rounded-lg border-gray-300
+        text-gray-700 sm:text-sm;
+    }
+}
+
 /* Aside menu styles */
 .aside_menu {
     transition: width 1s ease;
