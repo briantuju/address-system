@@ -4,7 +4,8 @@
 
 @layer components {
     .input {
-        @apply mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm;
+        @apply mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm
+        py-2 px-3 focus:border-sky-500 focus:ring-sky-500;
     }
 
     .btn {
@@ -12,6 +13,10 @@
         px-10 py-2 text-sm font-medium text-white transition-all
         duration-500 hover:bg-transparent hover:text-sky-600
         focus:outline-none focus:ring active:text-sky-500;
+    }
+
+    h1 {
+        @apply text-xl font-bold text-gray-700 text-center;
     }
 
     label {

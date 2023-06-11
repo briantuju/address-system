@@ -10,7 +10,9 @@
 <body>
 <header class="w-full py-4 shadow">
     <x-misc.container>
-        <img src="{{ asset('images/logo.png') }}" class="w-12 h-12" alt="Logo">
+        <a href="{{ route('home') }}">
+            <img src="{{ asset('images/logo.png') }}" class="w-12 h-12" alt="Logo">
+        </a>
     </x-misc.container>
 </header>
 
@@ -20,7 +22,7 @@
             <div class="max-w-[250px] w-[250px] flex flex-col justify-between min-h-full">
                 <x-address.select-form/>
 
-                <a href="{{ /*TODO*/ null }}" class="btn w-full text-center">
+                <a href="{{ route('address.create') }}" class="btn w-full text-center">
                     Add Address
                 </a>
             </div>
