@@ -38,5 +38,6 @@
     </div>
 </x-misc.container>
 
+@include('sweetalert::alert')
 </body>
 </html>

@@ -26,8 +26,7 @@ class AddressController extends Controller
             'slug' => str($request->name)->slug(),
         ]);
 
-        return to_route('home')
-            ->with('success', 'Address created successfully.');
+        return to_route('home')->with('toast_success', 'Address created successfully');
     }
 
     /**
