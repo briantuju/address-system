@@ -19,4 +19,12 @@ class Address extends Model
     protected $casts = [
         'meta' => 'array'
     ];
+
+    /**
+     * Get the route key for the model.
+     */
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
 }
