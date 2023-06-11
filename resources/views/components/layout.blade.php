@@ -17,8 +17,12 @@
 <x-misc.container>
     <div class="w-full flex gap-4">
         <aside class="min-h-[85vh] p-4 aside_menu rounded-xl bg-gray-100 hidden xl:block">
-            <div class="max-w-[250px] w-[250px]">
+            <div class="max-w-[250px] w-[250px] flex flex-col justify-between min-h-full">
                 <x-address.select-form/>
+
+                <a href="{{ /*TODO*/ null }}" class="btn w-full text-center">
+                    Add Address
+                </a>
             </div>
         </aside>
 
