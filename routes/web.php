@@ -11,4 +11,6 @@ Route::group(['prefix' => 'address', 'as' => 'address.'], function () {
     Route::get('/', [AddressController::class, 'create'])->name('create');
 
     Route::post('/', [AddressController::class, 'store'])->name('store');
+
+    Route::get('/{address}', [AddressController::class, 'show'])->name('show');
 });

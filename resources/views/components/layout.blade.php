@@ -39,5 +39,6 @@
 </x-misc.container>
 
 @include('sweetalert::alert')
+@stack('scripts')
 </body>
 </html>

@@ -34,7 +34,9 @@ class AddressController extends Controller
      */
     public function show(Address $address)
     {
-        //
+        // TODO:
+
+        return to_route('home')->with('toast_info', 'Not implemented');
     }
 
     /**
