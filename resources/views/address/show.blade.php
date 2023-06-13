@@ -21,12 +21,26 @@
         </div>
 
         <div class="col-span-1 md:col-span-5 xl:col-span-9">
-            <h1 class="h1 text-left">
-                {{ $address->name }}
-            </h1>
+            <div class="flex justify-between items-start">
+                <h1 class="h1 text-left">
+                    {{ $address->name }}
+                </h1>
+
+                <form
+                    action="{{ route('address.destroy', $address) }}"
+                    method="post" class="delete_address"
+                >
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit"
+                            class="px-3 py-1 rounded-lg text-xs cursor-pointer font-bold bg-red-500 text-white">
+                        Delete Address
+                    </button>
+                </form>
+            </div>
 
             <div class="p-4 xl:p-8 bg-amber-50 rounded-2xl shadow-lg mt-6">
-                <x-address.document-list :documents="$address->documents" />
+                <x-address.document-list :documents="$address->documents"/>
             </div>
         </div>
     </div>

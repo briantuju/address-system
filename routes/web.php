@@ -12,6 +12,8 @@ Route::group(['prefix' => 'address', 'as' => 'address.'], function () {
 
     Route::post('/', [AddressController::class, 'store'])->name('store');
 
+    Route::delete('/{address}', [AddressController::class, 'destroy'])->name('destroy');
+
     Route::get('/{address}', [AddressController::class, 'show'])->name('show');
 });
 

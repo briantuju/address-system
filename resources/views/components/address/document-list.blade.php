@@ -16,12 +16,12 @@
                         @csrf
                         @method('DELETE')
                         <button type="submit"
-                                class="px-3 py-1 rounded-xl text-xs cursor-pointer font-bold bg-red-700 text-red-200">
+                                class="px-3 py-1 rounded-xl text-xs cursor-pointer font-bold bg-red-600 text-red-100">
                             Delete
                         </button>
                     </form>
                     <a href="{{ route('document.show', $document) }}"
-                       class="px-3 py-1 rounded-xl text-xs cursor-pointer font-bold bg-amber-700 text-amber-200">
+                       class="px-3 py-1 rounded-xl text-xs cursor-pointer font-bold bg-amber-600 text-amber-100">
                         Download
                     </a>
                 </div>

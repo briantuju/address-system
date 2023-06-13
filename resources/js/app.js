@@ -4,6 +4,7 @@ const menuToggle = document.querySelector(".menu_toggle");
 const asideMenu = document.querySelector(".aside_menu");
 const addressSelect = document.querySelector(".address_select");
 const deleteDocumentForms = document.querySelectorAll(".delete_document");
+const deleteAddress = document.querySelector(".delete_address");
 const homepageUrl = import.meta.env.VITE_HOMEPAGE;
 
 menuToggle &&
@@ -36,4 +37,15 @@ deleteDocumentForms &&
 
             return false;
         });
+    });
+
+deleteAddress &&
+    deleteAddress.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        if (confirm("Are you sure?")) {
+            deleteAddress.submit();
+        }
+
+        return false;
     });

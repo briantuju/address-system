@@ -39,26 +39,13 @@ class AddressController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Address $address)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateAddressRequest $request, Address $address)
-    {
-        //
-    }
-
-    /**
      * Remove the specified resource from storage.
      */
     public function destroy(Address $address)
     {
-        //
+        $address->delete();
+
+        return to_route('home')
+            ->with('toast_info', 'Address deleted successfully');
     }
 }
