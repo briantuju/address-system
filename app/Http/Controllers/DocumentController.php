@@ -18,7 +18,7 @@ class DocumentController extends Controller
         $name = $file->hashName();
 
         // Upload file
-        Storage::put("documents/{$name}", $file);
+        Storage::put("documents/" . $name, $file);
 
         // Save to database
         $address->documents()->create([
@@ -37,7 +37,7 @@ class DocumentController extends Controller
      */
     public function show(Document $document)
     {
-        //
+        return Storage::download(storage_path('app/' . $document->path));
     }
 
     /**

@@ -3,23 +3,31 @@
         {{ $address->name }}
     </x-slot:title>
 
-    <div class="w-full flex flex-col items-start justify-between gap-4 md:flex-row">
-        <h1 class="h1 text-left">
-            {{ $address->name }}
-        </h1>
+    <div class="grid grid-cols-1 md:grid-cols-8 xl:grid-cols-12 gap-8 xl:gap-12">
+        <div class="col-span-1 md:col-span-3 md:order-last">
+            <form
+                action="{{ route('address.document.store', $address) }}"
+                method="post"
+                enctype="multipart/form-data"
+            >
+                @csrf
+                <x-misc.input-group>
+                    <label for="file">Upload document</label>
+                    <input type="file" name="file" id="file" class="input" required>
+                </x-misc.input-group>
 
-        <form
-            action="{{ route('address.document.store', $address) }}"
-            method="post"
-            enctype="multipart/form-data"
-        >
-            @csrf
-            <x-misc.input-group>
-                <label for="file">Upload document</label>
-                <input type="file" name="file" id="file" class="input" required>
-            </x-misc.input-group>
+                <x-misc.button type="submit" class="px-2 py-1">Upload</x-misc.button>
+            </form>
+        </div>
 
-            <x-misc.button type="submit" class="px-2 py-1">Upload</x-misc.button>
-        </form>
+        <div class="col-span-1 md:col-span-5 xl:col-span-9">
+            <h1 class="h1 text-left">
+                {{ $address->name }}
+            </h1>
+
+            <div class="p-4 xl:p-8 bg-amber-50 rounded-2xl shadow-lg mt-6">
+                <x-address.document-list :documents="$address->documents" />
+            </div>
+        </div>
     </div>
 </x-layout>
