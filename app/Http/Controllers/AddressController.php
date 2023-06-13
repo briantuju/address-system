@@ -21,12 +21,13 @@ class AddressController extends Controller
      */
     public function store(StoreAddressRequest $request)
     {
-        Address::create([
+        $address = Address::create([
             'name' => $request->name,
             'slug' => str($request->name)->slug(),
         ]);
 
-        return to_route('home')->with('toast_success', 'Address created successfully');
+        return to_route('address.show', $address)
+            ->with('toast_success', 'Address created successfully');
     }
 
     /**
