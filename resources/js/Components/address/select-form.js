@@ -13,5 +13,5 @@ addressSelect &&
             return (window.location.href = homepageUrl);
         }
 
-        window.location.href = addressRoute + "/talon-cobb";
+        window.location.href = addressRoute + "/" + value;
     });

@@ -2,11 +2,10 @@
 
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', HomeController::class)->name('home');
 
 Route::group(['prefix' => 'address', 'as' => 'address.'], function () {
     Route::get('/', [AddressController::class, 'create'])->name('create');
