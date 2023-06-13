@@ -45,6 +45,8 @@ class DocumentController extends Controller
      */
     public function destroy(Document $document)
     {
-        //
+        $document->delete();
+
+        return back()->with('toast_info', 'Document deleted successfully');
     }
 }

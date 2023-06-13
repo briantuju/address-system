@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title ?? config('app.name') ?? 'Address Management System' }}</title>
+    @routes
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>

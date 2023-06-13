@@ -9,9 +9,17 @@
                 </h5>
 
                 <div class="flex gap-4 items-center">
-                    <span class="px-3 py-1 rounded-xl text-xs cursor-pointer font-bold bg-red-700 text-red-200">
-                        Delete
-                    </span>
+                    <form
+                        action="{{ route('document.destroy', $document) }}"
+                        method="post" class="delete_document"
+                    >
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit"
+                                class="px-3 py-1 rounded-xl text-xs cursor-pointer font-bold bg-red-700 text-red-200">
+                            Delete
+                        </button>
+                    </form>
                     <a href="{{ route('document.show', $document) }}"
                        class="px-3 py-1 rounded-xl text-xs cursor-pointer font-bold bg-amber-700 text-amber-200">
                         Download

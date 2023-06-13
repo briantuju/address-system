@@ -17,10 +17,4 @@
             @endforelse
         </select>
     </x-misc.input-group>
-
-    @push('scripts')
-        <script>
-            window.routes = {{ Js::from(['address' => route('address.create')]) }};
-        </script>
-    @endpush
 </form>
