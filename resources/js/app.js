@@ -1,4 +1,8 @@
 import "./bootstrap";
+import Alpine from "alpinejs";
+
+window.Alpine = Alpine;
+Alpine.start();
 
 const menuToggle = document.querySelector(".menu_toggle");
 const asideMenu = document.querySelector(".aside_menu");
