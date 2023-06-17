@@ -17,6 +17,7 @@ class Document extends Model
         'path',
         'size',
         'address_id',
+        'user_id',
         'meta'
     ];
 
@@ -28,5 +29,10 @@ class Document extends Model
     public function address(): BelongsTo
     {
         return $this->belongsTo(Address::class);
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }

@@ -23,7 +23,7 @@ class StoreAddressRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|min:3|max:100|unique:addresses,name',
+            'name' => 'required|string|min:3|max:100',
         ];
     }
 }
