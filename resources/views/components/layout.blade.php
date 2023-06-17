@@ -11,9 +11,17 @@
 <body>
 <header class="w-full py-4 shadow">
     <x-misc.container>
-        <a href="{{ route('home') }}">
-            <img src="{{ asset('images/logo.png') }}" class="w-12 h-12" alt="Logo">
-        </a>
+        <div class="flex w-full items-center justify-between px-2 lg:px-0">
+            <a href="{{ route('home') }}">
+                <img src="{{ asset('images/logo.png') }}" class="w-12 h-12" alt="Logo">
+            </a>
+            <form action="{{ route('logout') }}" method="post">
+                @csrf
+                <x-misc.button type="submit" class="bg-red-500 text-red-50 py-1 px-2 border-none">
+                    Logout
+                </x-misc.button>
+            </form>
+        </div>
     </x-misc.container>
 </header>
 
