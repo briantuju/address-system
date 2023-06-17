@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreAddressRequest;
 use App\Http\Requests\UpdateAddressRequest;
 use App\Models\Address;
+use Illuminate\Support\Facades\Auth;
 
 class AddressController extends Controller
 {
@@ -24,6 +25,7 @@ class AddressController extends Controller
         $address = Address::create([
             'name' => $request->name,
             'slug' => str($request->name)->slug(),
+            'user_id' => auth()->id()
         ]);
 
         return to_route('address.show', $address)
