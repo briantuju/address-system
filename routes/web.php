@@ -6,42 +6,39 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', HomeController::class)->name('home');
+Route::middleware('auth')
+    ->group(function () {
 
-Route::group(['prefix' => 'address', 'as' => 'address.'], function () {
-    Route::get('/', [AddressController::class, 'create'])
-        ->name('create');
+        Route::get('/', HomeController::class)
+            ->name('home');
 
-    Route::post('/', [AddressController::class, 'store'])
-        ->name('store');
+        Route::group(['prefix' => 'address', 'as' => 'address.'], function () {
+            Route::get('/', [AddressController::class, 'create'])
+                ->name('create');
 
-    Route::delete('/{address}', [AddressController::class, 'destroy'])
-        ->name('destroy');
+            Route::post('/', [AddressController::class, 'store'])
+                ->name('store');
 
-    Route::get('/{address}', [AddressController::class, 'show'])
-        ->name('show');
-});
+            Route::delete('/{address}', [AddressController::class, 'destroy'])
+                ->name('destroy');
 
-Route::resource('address.document', DocumentController::class)
-    ->shallow()
-    ->only(['store', 'show', 'destroy'])
-    ->missing(function () {
-        return back()->with('toast_error', 'Document not found');
+            Route::get('/{address}', [AddressController::class, 'show'])
+                ->name('show');
+        });
+
+        Route::resource('address.document', DocumentController::class)
+            ->shallow()
+            ->only(['store', 'show', 'destroy'])
+            ->missing(function () {
+                return back()->with('toast_error', 'Document not found');
+            });
+
+        Route::get('/profile', [ProfileController::class, 'edit'])
+            ->name('profile.edit');
+        Route::patch('/profile', [ProfileController::class, 'update'])
+            ->name('profile.update');
+        Route::delete('/profile', [ProfileController::class, 'destroy'])
+            ->name('profile.destroy');
     });
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])
-        ->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])
-        ->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])
-        ->name('profile.destroy');
-});
 
 require __DIR__ . '/auth.php';

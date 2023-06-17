@@ -27,6 +27,7 @@ class DocumentController extends Controller
             'mime_type' => $file->getClientMimeType(),
             'path' => "documents/$name",
             'size' => $file->getSize(),
+            'user_id' => auth()->id()
         ]);
 
         return back()->with('toast_success', 'Document uploaded successfully');
