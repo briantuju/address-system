@@ -20,7 +20,7 @@ class DocumentControllerTest extends TestCase
         $address = Address::factory()->create();
         $file = UploadedFile::fake()->image('doc.jpg')->size(150);
 
-        $this->post(route('address.document.store', $address), [
+        $this->actingAs($this->user)->post(route('address.document.store', $address), [
             'file' => $file
         ])->assertRedirect();
 

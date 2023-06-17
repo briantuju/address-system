@@ -9,10 +9,8 @@ class HomepageTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_homepage_renders_successfully(): void
+    public function test_homepage_allows_only_authenticated_users(): void
     {
-        $response = $this->get('/');
-
-        $response->assertStatus(200);
+        $this->actingAs($this->user)->get(route('home'))->assertOk();
     }
 }
