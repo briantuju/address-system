@@ -1,5 +1,7 @@
 @php
-    $addresses = \App\Models\Address::with('documents')->get();
+    $addresses = \App\Models\Address::with('documents')
+    ->whereUserId(auth()->id())
+    ->get();
     $params = \Illuminate\Support\Facades\Route::current()->parameters;
     $slug = isset($params['address']['slug']) ? $params['address']['slug'] : null;
 @endphp
